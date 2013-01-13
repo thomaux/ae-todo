@@ -5,6 +5,7 @@
 
 var express = require('express')
   , routes = require('./routes')
+  , socket = require('./routes/socket')
   , todo = require('./routes/todo')
   , http = require('http')
   , path = require('path');
@@ -38,3 +39,7 @@ app.options('/todo/:id', todo.options);
 var server = http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
+
+var io = require('socket.io').listen(server);
+
+io.sockets.on('connection', socket);

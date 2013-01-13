@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TODO: title</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="lib/knockout-2.2.0.js"></script>
+    <script type="text/javascript" src="lib/knockout.validation.js"></script>
+    <script type="text/javascript" src="js/bindings.js"></script>
+    <script type="text/javascript" src="lib/require.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/base/jquery-ui.css">
+</head>
+<body>
+<div id="todo-app-container" class="well well-large">
+    <h1>Tasks</h1>
+    <a href="#" data-bind="text: toggleCompletedTasksText, click: toggleCompletedTasks"></a>
+    <ul data-bind="foreach: tasks" class="unstyled">
+        <!-- ko  -->
+        <li data-bind="if: !(!$parent.showCompletedTasks() && completed())"><input type="checkbox" data-bind="checked: completed" /> <span data-bind="text: title, css: {done: completed}"></span> </li>
+        <!-- /ko -->
+    </ul>
+    <form data-bind="with: newTask, submit: addTask">
+        <fieldset>
+            <legend>Add a new task</legend>
+            <label>Name</label><input type="text" data-bind="value: name" placeholder="The name of your new task" />
+            <label>Due by</label> <input type="text" data-bind="date: duedate" placeholder="When is it due?">
+            <input type="submit" value="Add" class="btn btn-primary">
+        </fieldset>
+    </form>
+</div>
+<script type="text/javascript">
+    require.config({
+        urlArgs: "bust=" + (new Date()).getTime()
+    });
+
+    require(['App'], function(app){
+
+    });
+</script>
+</body>
+</html>

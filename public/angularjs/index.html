@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app="todoApp">
+  <head>
+  	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+	<script src="js/lib/angular-ui.min.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/todo.js"></script>
+	
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" href="stylesheets/angular-ui.min.css">
+    <link rel="stylesheet" href="stylesheets/todo.css">
+  </head>
+  <body>
+  <div class="well">
+    <h2>Todo</h2>
+    <div ng-controller="TodoCtrl">
+      <span>{{remaining()}} of {{todos.length}} remaining</span>
+      [ <a href="" ng-click="archive()">archive</a> ]
+      <ul class="unstyled">
+        <li ng-repeat="todo in todos">
+          <input type="checkbox" ng-model="todo.completed" ng-change="changeCompleted(todo)">
+          <span class="done-{{todo.completed}}">{{todo.name}} <span ng-show="todo.duedate">( {{todo.duedate | date: 'mediumDate'}} )</span></span>
+        </li>
+      </ul>
+      <form ng-submit="addTodo()">
+        <input type="text" ng-model="todoText"  size="30"
+               placeholder="add new todo here">
+        <input class="btn-primary" type="submit" value="add">
+      </form>
+    </div>
+	Select due date:
+	<div ng-model="selectedDate" ui-date></div>
+  </div>
+  </body>
+</html>

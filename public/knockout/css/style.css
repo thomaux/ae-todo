@@ -1,0 +1,21 @@
+#todo-app-container {
+    position: absolute;
+    top: 20px;
+    bottom: 0;
+    left: 25%;
+    width: 50%;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+.btn, input[type=checkbox] {
+    vertical-align: top !important;
+}
+
+.validationMessage {
+    color: #B94A48;
+    vertical-align: top;
+    margin-left: 5px;
+}
