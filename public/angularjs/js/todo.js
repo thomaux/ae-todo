@@ -1,6 +1,6 @@
 angular.module('todoApp', ['ui', 'services']);
 
-var BASE_PATH = "http://ae-todo2.cloudfoundry.com/";
+var BASE_PATH = "http://aetodo.cloudfoundry.com/";
 
 
 function TodoCtrl($scope, $http, socket) {

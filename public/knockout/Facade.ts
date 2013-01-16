@@ -1,7 +1,7 @@
 /// <reference path="lib/jquery-1.8.d.ts" />
 
 //var BASE_PATH = "http://localhost:3000/";
-var BASE_PATH = 'http://ae-todo2.cloudfoundry.com/';
+var BASE_PATH = 'http://aetodo.cloudfoundry.com/';
 
 
 

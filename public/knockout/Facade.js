@@ -1,5 +1,5 @@
 define(["require", "exports"], function(require, exports) {
-    var BASE_PATH = 'http://ae-todo2.cloudfoundry.com/';
+    var BASE_PATH = 'http://aetodo.cloudfoundry.com/';
     var Facade = (function () {
         function Facade() { }
         Facade.list = function list() {

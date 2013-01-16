@@ -1,13 +1,9 @@
---- 
-applications: 
-  .: 
-    name: ae-todo
-    framework: 
-      name: node
-      info: 
-        mem: 64M
-        description: Node.js Application
-        exec: 
-    url: ${name}.${target-base}
-    mem: 128M
-    instances: 1
+---
+applications:
+- name: ae-todo
+  framework: node
+  runtime: node08
+  memory: 64M
+  instances: 1
+  url: aetodo.${target-base}
+  path: .
